@@ -469,7 +469,7 @@ static char ascii_printable[] =
 /*
  * Patched-in vars below!
  */
-static char *font = "Source Code Pro:style=Semibold:size=12";
+static char *font = "Source Code Pro:style=Semibold:size=15";
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -503,9 +503,9 @@ static const char *colorname[] = {
  * Default colors (colorname index)
  * foreground, background, cursor
  */
-static unsigned int defaultfg = 257;
-static unsigned int defaultbg = 256;
-static unsigned int defaultcs = 257;
+unsigned int defaultfg = 257;
+unsigned int defaultbg = 256;
+unsigned int defaultcs = 257;
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
