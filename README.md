@@ -28,6 +28,14 @@ the st terminfo entry with the following command:
 
 See the man page for additional details.
 
+Patches
+-------
+Based upon this source code, I changed things in `config.h` to get some non-default behavior:
+
+1. Color scheme (see dotfiles repository in `termcolors/simpleterm.h`)
+2. I use tmux to have a scroll back buffer, so no patches needed for that
+3. more to come!
+
 Credits
 -------
 Based on Aurélien APTEL <aurelien dot aptel at gmail dot com> bt source code.
