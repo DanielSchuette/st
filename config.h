@@ -1,5 +1,5 @@
 /* See LICENSE file for copyright and license details. */
-/* 
+/*
  * Patches are applied by commenting lines that were
  * defaults and appending the desired configuration to
  * the end of this file.
@@ -468,8 +468,9 @@ static char ascii_printable[] =
 
 /*
  * Patched-in vars below!
+ * `style=Semibold:` messes up colors!
  */
-static char *font = "Source Code Pro:style=Semibold:size=15";
+static char *font = "Source Code Pro:size=15";
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -509,7 +510,7 @@ unsigned int defaultcs = 257;
 
 /*
  * Colors used, when the specific fg == defaultfg. So in reverse mode this
- * will reverse too. 
+ * will reverse too.
  */
 static unsigned int defaultitalic = 7;
 static unsigned int defaultunderline = 7;
