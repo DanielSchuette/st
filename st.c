@@ -774,7 +774,7 @@ ttynew(char *line, char *cmd, char *out, char **args)
 		iofd = (!strcmp(out, "-")) ?
 			  1 : open(out, O_WRONLY | O_CREAT, 0666);
 		if (iofd < 0) {
-			fprintf(stderr, "Error opening %s:%s\n",
+			fprintf(stderr, "Error opening %s: %s\n",
 				out, strerror(errno));
 		}
 	}

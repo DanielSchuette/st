@@ -9,8 +9,10 @@
  * appearance
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
+ * default is:
+ * static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
+ * but a user-defined font is set at the end of this file
  */
-//static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 static int borderpx = 2;
 
 /*
@@ -137,10 +139,11 @@ static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
+ * Set to double of the default to always open full screen
  */
 
-static unsigned int cols = 80;
-static unsigned int rows = 24;
+static unsigned int cols = 160;
+static unsigned int rows = 48;
 
 /*
  * Default colour and shape of the mouse cursor
