@@ -20,7 +20,7 @@ static char *argv0;
 #include "st.h"
 #include "win.h"
 
-/* types used in config.h */
+/* types used in config.h, must include header after this  */
 typedef struct {
 	uint mod;
 	KeySym keysym;
@@ -38,6 +38,7 @@ typedef struct {
 	KeySym k;
 	uint mask;
 	char *s;
+
 	/* three-valued logic variables: 0 indifferent, 1 on, -1 off */
 	signed char appkey;    /* application keypad */
 	signed char appcursor; /* application cursor */
@@ -66,9 +67,9 @@ static void zoomreset(const Arg *);
 
 /* macros */
 #define IS_SET(flag)		((win.mode & (flag)) != 0)
-#define TRUERED(x)		(((x) & 0xff0000) >> 8)
+#define TRUERED(x)		    (((x) & 0xff0000) >> 8)
 #define TRUEGREEN(x)		(((x) & 0xff00))
-#define TRUEBLUE(x)		(((x) & 0xff) << 8)
+#define TRUEBLUE(x)		    (((x) & 0xff) << 8)
 
 typedef XftDraw *Draw;
 typedef XftColor Color;
@@ -77,10 +78,10 @@ typedef XftGlyphFontSpec GlyphFontSpec;
 /* Purely graphic info */
 typedef struct {
 	int tw, th; /* tty width and height */
-	int w, h; /* window width and height */
-	int ch; /* char height */
-	int cw; /* char width  */
-	int mode; /* window state/mode flags */
+	int w, h;   /* window width and height */
+	int ch;     /* char height */
+	int cw;     /* char width  */
+	int mode;   /* window state/mode flags */
 	int cursor; /* cursor style */
 } TermWindow;
 
@@ -97,9 +98,9 @@ typedef struct {
 	Visual *vis;
 	XSetWindowAttributes attrs;
 	int scr;
-	int isfixed; /* is fixed geometry? */
-	int l, t; /* left and top offset */
-	int gm; /* geometry mask */
+	int isfixed; /* if fixed geometry */
+	int l, t;    /* left and top offset */
+	int gm;      /* geometry mask */
 } XWindow;
 
 typedef struct {
@@ -110,7 +111,7 @@ typedef struct {
 } XSelection;
 
 /* Font structure */
-#define Font Font_
+#define Font Font_ /* avoid re-defining `Font' in X11 headers */
 typedef struct {
 	int height;
 	int width;
@@ -189,10 +190,9 @@ static void (*handler[LASTEvent])(XEvent *) = {
 	[ButtonPress] = bpress,
 	[ButtonRelease] = brelease,
 /*
- * Uncomment if you want the selection to disappear when you select something
- * different in another window.
+ * Put in `selclear_' if you want the selection to disappear when you select
+ * something different in another window.
  */
-/*	[SelectionClear] = selclear_, */
 	[SelectionNotify] = selnotify,
 /*
  * PropertyNotify is only turned on when there is some INCR transfer happening
